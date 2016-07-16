@@ -16,4 +16,13 @@ class Movie extends Model
 		$this->attributes['path'] = $name;
 		\Storage::disk('local')->put($name, \File::get($path));
 	}
+
+	public static function Movies()
+	{
+		return DB::table('movies')
+			->join('genres','genres.id','=','movies.genre_id')
+			->select('movies.*', 'genres.genre')
+			->get();
+		
+	}
 }
