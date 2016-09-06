@@ -10,6 +10,7 @@ class Admin
 {
 
     protected $auth;
+    
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;
